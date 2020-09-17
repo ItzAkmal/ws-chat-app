@@ -25,7 +25,7 @@ const io = socket(server)
 io.sockets.on('connection', (socket) => {
 	console.log('new connection!')
 
-	socket.on('lmao', () => {
-		io.emit('lol', { msg: 'LMAO' })
+	socket.on('send-message', (data) => {
+		io.sockets.emit('recieve-message', data)
 	})
 })
